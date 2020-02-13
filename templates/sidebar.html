@@ -1,0 +1,65 @@
+
+
+{% load static %}
+
+
+<aside class="col-lg-4">
+    <!-- Widget [Search Bar Widget]-->
+    <div class="widget-sidebar sidebar-search">
+            <h5 class="sidebar-title">Search</h5>
+            <div class="sidebar-content">
+              <form action="{% url 'search' %}" >
+                <div class="input-group">
+                  <input type="text" name="q"  class="form-control" placeholder="Search for..." aria-label="Search for...">
+                  <span class="input-group-btn">
+                    <button class="" type="submit">
+                      <span class="ion-android-search"></span>
+                    </button>
+                  </span>
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+
+<div class="widget-sidebar">
+            <h5 class="sidebar-title">Recent Post</h5>
+            <div class="sidebar-content">
+              <ul class="list-sidebar">
+                <li>
+                  {% for post in most_recent %}
+        <a href="{{ post.get_absolute_url }}">
+            <div class="item d-flex align-items-center">
+            <div class="image"><img src="{{ post.thumbnail.url }}" alt="..." class="img-fluid img-thumbnail mb-3" style="width:200; height:100px;"></div>
+            <div class="title ml-2"><strong><small>{{ post.title }}</small></strong>
+                <div class="d-flex align-items-center">
+                
+                <div class="comments"><small>Comments: {{ post.comments.count }}</small></div>
+                </div>
+            </div>
+            </div>
+        </a>
+        {% endfor %}
+                </li>
+                
+              </ul>
+              <div class="widget categories">
+    <header>
+        <h3 class="h6">Categories</h3>
+    </header>
+    {% for cat in category_count %}
+    <div class="item d-flex justify-content-between">
+        <a href="#"><small>{{ cat.categories__title }}</a><span>{{ cat.categories__title__count }}</small></span>
+    </div>
+    {% endfor %}
+    </div>
+            </div>
+          </div>
+
+
+
+    
+    <!-- Widget [Categories Widget]-->
+    
+</aside>

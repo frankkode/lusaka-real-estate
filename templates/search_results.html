@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!--/ Intro Skew Star /-->
+          <h2 class="intro-title mb-4 text-center">Search results</h2>
+  <!--/ Intro Skew End /-->
+<div class="container">
+<div class="text-center mt-4 ml-4" >
+{% for post in queryset %}
+    <a class="text-center" " href="{{ post.get_absolute_url }}"><span style="color:green;"><i class="fab fa-creative-commons-share"></i>-{{ post.title }}</span></a>
+    <br />
+{% endfor %}
+</div>
+</div>
+{% endblock %}
