@@ -6,6 +6,7 @@ local_settings.py
 db.sqlite3
 media
 venv/
+env.py
 /static
 .vscode
 # Byte-compiled / optimized / DLL files
